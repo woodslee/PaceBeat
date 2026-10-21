@@ -1,0 +1,52 @@
+# ---------------------------------------------------------------------------
+# Gradle / Kotlin build output
+# ---------------------------------------------------------------------------
+.gradle/
+build/
+**/build/
+.kotlin/
+out/
+app/release/
+
+# ---------------------------------------------------------------------------
+# Android Studio / IntelliJ
+# ---------------------------------------------------------------------------
+.idea/
+*.iml
+captures/
+.navigation/
+.externalNativeBuild/
+.cxx/
+local.properties
+
+# ---------------------------------------------------------------------------
+# OS / editor / logs
+# ---------------------------------------------------------------------------
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+*.log
+*.hprof
+*.swp
+
+# ---------------------------------------------------------------------------
+# Signing secrets
+# The bundled keystore/pacebeat.jks is an intentionally public demo key
+# (password: pacebeat) used by this sample project, so it stays tracked.
+# Never add a real production keystore or its passwords here.
+# ---------------------------------------------------------------------------
+keystore.properties
+*.jks
+*.keystore
+!keystore/pacebeat.jks
+
+# ---------------------------------------------------------------------------
+# Intentionally tracked (do not ignore)
+# ---------------------------------------------------------------------------
+# gradle/wrapper/gradle-wrapper.jar
+# docs/screenshots/
+# app/src/main/assets/sounds/
+# releases/PaceBeat-1.0.0.apk

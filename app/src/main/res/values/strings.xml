@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">PaceBeat</string>
+    <string name="notification_channel_name">节拍播放</string>
+    <string name="notification_channel_desc">跑步节拍器的后台播放状态</string>
+</resources>
