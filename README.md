@@ -2,8 +2,6 @@
 
 PaceBeat 是一个受 **RunBeat（com.voyago.runbeat）** 启发的原生 Android 跑步节拍器。它保留了「按步频分段训练」的核心体验，重新实现了训练计划、节拍合成、后台播放、语音提示与通知控制，并做成一个**完全离线、无账号、无广告**的本地应用。
 
-> 本项目代码为独立实现，与 RunBeat 官方无关联。3 种 Click 来自 Freesound CC0，11 种打击乐组合来自用户提供的音频；公开发布前请自行核对音源授权。
-
 ## 截图
 
 | 首页 | 训练中 | 设置 |
@@ -111,30 +109,10 @@ app/src/main/java/com/wl/pacebeat/
 5. **后台**：服务以 `mediaPlayback` 类型前台运行并持有唤醒锁；通知动作通过 `PendingIntent` 调回服务。
 6. **可混音**：音频属性为 `USAGE_MEDIA + CONTENT_TYPE_SONIFICATION`，不主动请求音频焦点，因此可以和其它音频应用同时播放。
 
-## 音色来源与授权
-
-- **纯净 Click（CC0）**：
-  - [MPC Metronome click](https://freesound.org/s/684106/)（trader_one）
-  - [Click Metronome atonal high](https://freesound.org/s/566888/)（lennartgreen）
-  - [Metronome click](https://freesound.org/s/490276/)（edgyboi1）
-- **打击乐组合（用户提供）**：
-  - 来自你提供的 11 个 1/2 拍、8 秒 MP3。
-  - 每个文件取第 1 拍作为重音、第 2 拍作为普通拍，裁切为约 0.1–0.45 秒的裸 PCM；原始 MP3 不打包。
-  - 这些文件由你提供，公开发布前请自行确认授权。
-
-## 与 RunBeat 的差异
-
-- 本项目只保留纯节拍器：3 种 Click 为 CC0，11 种打击乐组合使用你提供的音频；不包含原版生成音乐、云端步频歌单（Cadence Mix）、账号登录、PRO 订阅、邀请/支付和埋点 SDK。
-- 原版使用约 75 MB 的 SoundFont 与 Flutter/fluidSynth 音频栈；本项目不打包 SoundFont，只保留约 0.6 MB 的本地节拍采样，APK 约 10 MB，且没有网络权限。
-- 原版部分文案/交互为英文；本项目界面为中文。
-- 原版 BPM 范围与音色以 APK 内实际逻辑为准；本项目统一使用 100–240 SPM、1/2–1/4 拍组、14 种音色。
-
 ## 验证
 
 - `./gradlew testReleaseUnitTest`：计划模板完整性、所有音色可生成非静音 PCM、1/2–1/4 拍组的小节采样数、28 个采样资源完整性。
 - 已在 Android 17（API 37）模拟器上完成安装、启动、权限、训练开始、暂停/继续、下一段、通知操作、模板应用、分段增删、完成页、节拍数切换、音色与打击乐组合切换、长按下一段和长按停止的冒烟测试。
 - Release APK 通过 `zipalign -c -P 16` 16 KB 对齐校验与 `apksigner verify`。
 
-## 文档
-
-- [RunBeat APK 分析](docs/analysis.md)
+- docs/analysis.md)
